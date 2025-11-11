@@ -1,0 +1,303 @@
+/*---------------------Google fonts-----------------------*/
+@import url('https://fonts.gogoleapis.com/css2?family=Ubuntu:wgt@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --blue: #2614f3;
+    --blue2:#0ed4ee;
+    --black:#424242;
+    --white:#fff;
+    --gray: #5d5c5c;
+    --red: #d92341;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  padding-top: 70px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+
+/* Main section (topbar + content + footer) */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 250px);
+  height: 100vh;
+}
+
+/*--------------- Sidebar -----------------------*/
+.company-name{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 80px;
+    padding: 0 20px;
+    color: var(--white);
+    font-weight: bold;
+     font-family: "Playpen Sans", cursive;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.company-title .logo-icon {
+    font-size: 5rem;
+    margin-right:9px;
+}
+
+.company-title {
+    white-space: nowrap;
+    font-weight: bold;
+    font-family: "Playpen Sans", cursive;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* When sidebar is collapsed */
+.sidebar.active .company-title {
+    display: none;
+    font-family: "Playpen Sans", cursive;
+}
+
+.sidebar.active .company-name {
+    justify-content: center;
+}
+
+.sidebar {
+   position: fixed;
+   font-family: "Poppins", sans-serif;
+    width: 250px;
+    height: 100vh;
+    background:var(--black);
+    border-left:5px solid var(--black);
+   transition: all 0.3s ease;
+  
+  padding-top: 3px;
+    top: 0;
+    left:0;
+    
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.sidebar.active {
+    width: 80px;
+}
+
+.sidebar ul {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.hovered {
+    background-color: var(--white);
+}
+
+.sidebar ul li:nth-child(1) {
+    margin-bottom: 30px;
+    pointer-events: none;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+    padding: 0;
+}
+
+.sidebar ul li:hover a,
+.sidebar ul li.hovered a {
+    color: var(--blue);
+}
+
+.sidebar ul li a .icon {
+    min-width: 60px;
+    height: 60px;
+    line-height: 65px;
+    text-align: center;
+}
+
+.sidebar ul li a .icon ion-icon {
+    font-size: 1.65rem;
+}
+
+.sidebar ul li a .title {
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/*----------------- Curved highlight effect --------------*/
+.sidebar ul li:hover a::before,
+.sidebar ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.sidebar ul li:hover a::after,
+.sidebar ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/*---------------------- TopBar ----------------*/
+.topbar {
+     height: 70px;
+     width: calc(100% - 290px);
+    top: 0;
+    left: 250px;
+    right: 0;
+    justify-content: space-between;
+    position:fixed;
+    background-color: #d92341;
+    color: rgb(58, 57, 57);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.toggle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    color: rgb(8, 8, 8);
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.search {
+    flex: 1;
+    text-align: center;
+}
+
+.search label {
+    position: relative;
+    width: 90%;
+}
+
+.search label input {
+    width: 60%;
+    height: 40px;
+    border-radius: 50px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--gray);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 660px;
+    font-size: 1.2rem;
+}
+
+/* User Profile */
+.topbar .user {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between image and username */
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.topbar .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #534d4d;
+  transition: transform 0.3s ease;
+}
+
+
+.topbar .user img:hover {
+  transform: scale(1.1);
+}
+
+/* Adjust when sidebar collapses */
+.sidebar.active ~ .topbar {
+    left: 80px; /* matches collapsed sidebar width */
+}
+
+/* Dashboard Page */
+.dashboard-page,body {
+    position: relative;
+    margin-left: 250px; /* matches expanded sidebar width */
+    margin-top: 60px; /* matches topbar height */
+    padding: 20px;
+    
+    background-image: url(./assets/BACKSTAGE_PICTURES/BACKSTAGEPASSLOGO.png);
+    background-repeat: repeat;
+    background-size: 200px auto;
+    background-blend-mode: multiply;
+}
+
+
+.welcome-banner {
+  display: flex;
+  position: fixed;
+  top: 250px;
+  left: 450px;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  height: 150px;
+  width: 650px;
+  background: #d92341;
+  border-radius: 15px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  
+}
+
+.welcome-banner h1 {
+ font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.7);
+  margin: 0;
+  align-items: center;
+
+  font-weight: bold;
+  font-family: "Playpen Sans", cursive;
+
+}
+
